@@ -15,7 +15,7 @@ jobs:
 
     - name: Set Git user identity
       run: |
-        git config --global user.email "adindafebrn@gmail.com"
+        git config --global user.email "adinda.febriani@ai.astra.co.id"
         git config --global user.name "Adinda F"
 
     - name: Push to Azure DevOps
