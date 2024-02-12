@@ -17,5 +17,8 @@ jobs:
       env:
         AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
       run: |
-        git remote add azure https://tfs.astra.co.id/tfs/EnterpriseCollaboration/AstraWebsite/_git/AstraWebsite
+        git init
+        git add .
+        git commit -m "commit message"
+        git remote add azure https://${{ secrets.AZURE_DEVOPS_TOKEN }}@tfs.astra.co.id/tfs/EnterpriseCollaboration/AstraWebsite/_git/AstraWebsite
         git push azure main
