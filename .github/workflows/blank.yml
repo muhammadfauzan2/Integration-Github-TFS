@@ -22,8 +22,14 @@ jobs:
       env:
         AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
       run: |
-        git init
+        # Add changes
         git add .
-        git commit -m "commit message"
+        
+        # Check if there are changes to commit
+        git diff-index --quiet HEAD || git commit -m "Your commit message"
+        
+        # Add Azure DevOps remote
         git remote add azure https://${{ secrets.AZURE_DEVOPS_TOKEN }}@tfs.astra.co.id/tfs/EnterpriseCollaboration/AstraWebsite/_git/AstraWebsite
-        git push azure main
+        
+        # Push to Azure DevOps
+        git push azure main || echo "Nothing to push"
