@@ -13,6 +13,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set Git user identity
+      run: |
+        git config --global user.email "adindafebrn@gmail.com"
+        git config --global user.name "Adinda F"
+
     - name: Push to Azure DevOps
       env:
         AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
